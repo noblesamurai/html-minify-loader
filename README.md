@@ -48,3 +48,26 @@ module: {
 }
 
 ```
+
+## Webpack 2
+
+Webpack 2 does not allow a `html-minify-loader` option to be added to it's config.  Instead use loader options.
+
+```javascript
+module: {
+    rules: [
+        {
+            test: /\.html$/,
+            use: [
+                'raw-loader',
+                {
+                    loader: 'html-minify-loader',
+                    options: {
+                        quotes: true
+                    }
+                }
+            ]
+        }
+    ]
+}
+```

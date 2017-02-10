@@ -8,7 +8,7 @@ module.exports = function(source) {
         this.cacheable();
     }
 
-    var opts = this.options['html-minify-loader'] || {};
+    var opts = this.query || this.options['html-minify-loader'] || {};
     minimize = new Minimize(opts);
     minimize.parse(source, callback);
 };
