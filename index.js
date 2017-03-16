@@ -1,5 +1,5 @@
+var loaderUtils = require('loader-utils');
 var Minimize = require('minimize');
-
 
 module.exports = function(source) {
     var callback = this.async();
@@ -8,7 +8,7 @@ module.exports = function(source) {
         this.cacheable();
     }
 
-    var opts = this.query || this.options['html-minify-loader'] || {};
+    var opts = loaderUtils.getOptions(this) || this.options['html-minify-loader'] || {};
     minimize = new Minimize(opts);
     minimize.parse(source, callback);
 };
